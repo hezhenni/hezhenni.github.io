@@ -44,14 +44,4 @@ python3 -m http.server 8000
 - **页脚版权**：四个页面底部各有一行
 
 ## 上线
-
-GitHub 账号：**hezhenni**　仓库：**hezhenni.github.io**
 网站地址：**https://hezhenni.github.io**
-把本文件夹内**所有文件**（4 个 html + style.css + main.js + images 文件夹）上传到 main 分支 →
-Settings → Pages → Branch: `main` / `(root)` → Save → 等 1–2 分钟即可访问。
-
-## 待办
-
-- [x] About Me 已加入 GitHub 链接（github.com/hezhenni）
-- [ ] 补全最后一篇中文发表（周晨等，NovaMind 5）的期刊名与年卷期
-- [ ] （可选）在 About Me 加微信 / Google Scholar / ORCID 链接
