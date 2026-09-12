@@ -1,21 +1,19 @@
 # (Jenny) Zhenni He 何珍妮 — 个人网站
 
-白底 · Notion 简约风 · 蜡笔简笔画涂鸦 · 马卡龙浅色点缀。
-纯静态 HTML，托管在 GitHub Pages，免费、无后端。
 
 ## 页面结构（多页面）
 
 ```
 my-website/
-├── index.html          ← About Me 关于我（照片、简介、教育背景、技能、近期动态）
-├── publications.html   ← Publications 论文（期刊 8 / 会议 9 / 书章 2 / 中文 5）
+├── index.html          ← About Me 关于我
+├── publications.html   ← Publications 论文
 ├── experience.html     ← Experience 经历（工作 / 教学 / 科研项目）
 ├── personal.html       ← Personal 生活（数媒作品、新闻文章、联系方式）
-├── style.css           ← 所有样式（浅色块变量在文件开头 :root）
+├── style.css           ← 所有样式
 ├── main.js             ← 手机菜单、Show More 折叠、淡入动画
 └── images/
-    ├── profile.png     ← 个人照片（取自简历 PPT）
-    └── doodles/        ← 13 个手绘风蜡笔涂鸦 SVG（狗、猫、鲸鱼、青蛙、鸭子…）
+    ├── profile.png     ← 个人照片
+    └── doodles/        ← 13 个手绘风蜡笔涂鸦 SVG
 ```
 
 ## 浅色配色（对应 CSS 变量）
