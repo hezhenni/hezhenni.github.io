@@ -1,0 +1,427 @@
+/* ============================================================
+   (Jenny) Zhenni He — 个人网站样式
+   风格：白底 · Notion 简约 · 蜡笔简笔画涂鸦 · 马卡龙浅色点缀
+   浅色块：粉 #F7EAF1 / 蓝 #E8F2FB / 绿 #EAF2EC / 黄 #F8F3DE
+   ============================================================ */
+
+:root {
+  --bg:          #FFFFFF;
+  --text:        #37352F;   /* Notion 正文黑 */
+  --text-soft:   #5F5B54;
+  --muted:       #9B958B;
+  --line:        #EDECE9;   /* Notion 分隔线 */
+
+  --pink:        #F7EAF1;
+  --blue:        #E8F2FB;
+  --green:       #EAF2EC;
+  --yellow:      #F8F3DE;
+
+  --pink-deep:   #B0568A;
+  --blue-deep:   #3D6E9E;
+  --green-deep:  #4E7A5C;
+  --yellow-deep: #98802F;
+
+  --radius: 10px;
+  --maxw:   860px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+               "Hiragino Sans GB", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+h1, h2, h3 { margin: 0; color: var(--text); line-height: 1.4; }
+h1 { font-size: 2em; letter-spacing: -0.01em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.08em; }
+
+p { margin: 0 0 1em; }
+strong { font-weight: 600; }
+
+.cn {
+  font-size: 0.62em;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 0.45em;
+  letter-spacing: 0.04em;
+}
+
+a { color: var(--blue-deep); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+code {
+  background: var(--line);
+  padding: 1px 6px;
+  border-radius: 5px;
+  font-size: 0.86em;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+}
+
+.muted { color: var(--muted); font-size: 0.92em; }
+
+/* ---------- 顶部导航 ---------- */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, .94);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.02em;
+  white-space: nowrap;
+}
+.nav-brand:hover { text-decoration: none; }
+.nav-brand img { width: 28px; height: 28px; }
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  display: inline-block;
+  padding: 6px 13px;
+  border-radius: 8px;
+  color: var(--text-soft);
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+.nav-menu a:hover { background: #F4F3F0; text-decoration: none; }
+.nav-menu a.active { background: var(--blue); color: var(--blue-deep); font-weight: 600; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 1.05em;
+  padding: 2px 10px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+/* ---------- 页面主体 ---------- */
+
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 44px 24px 40px;
+}
+
+.page-header { position: relative; margin-bottom: 40px; }
+
+.page-icon {
+  width: 52px; height: 52px;
+  margin-bottom: 14px;
+}
+.page-icon img { width: 100%; height: 100%; }
+
+.page-header h1 { margin-bottom: 6px; }
+.page-sub { color: var(--muted); margin: 0; }
+
+/* 页角散落的涂鸦装饰 */
+.doodle-float {
+  position: absolute;
+  right: 0;
+  top: -6px;
+  width: 84px;
+  opacity: .9;
+  pointer-events: none;
+}
+.doodle-float.small { width: 52px; right: 86px; top: 46px; opacity: .75; }
+
+/* ---------- 版块 ---------- */
+
+.section { margin-bottom: 46px; scroll-margin-top: 80px; }
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.section-title img { width: 26px; height: 26px; }
+
+/* Notion 式彩色 Callout 块 */
+.callout {
+  display: flex;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  font-size: 0.97em;
+}
+.callout .co-icon { flex: 0 0 auto; width: 22px; padding-top: 2px; }
+.callout .co-icon img { width: 22px; height: 22px; }
+.callout p { margin: 0; }
+
+.c-pink   { background: var(--pink); }
+.c-blue   { background: var(--blue); }
+.c-green  { background: var(--green); }
+.c-yellow { background: var(--yellow); }
+
+/* ---------- HERO（About Me 顶部） ---------- */
+
+.hero {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  margin-bottom: 46px;
+}
+
+.hero-photo {
+  flex: 0 0 190px;
+  width: 190px;
+  position: relative;
+}
+.hero-photo img.photo {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  display: block;
+}
+.hero-photo .doodle-badge {
+  position: absolute;
+  width: 54px;
+  right: -22px;
+  bottom: -20px;
+  transform: rotate(8deg);
+}
+
+.hero-info h1 { margin-bottom: 4px; }
+.hero-title { color: var(--text-soft); margin-bottom: 12px; font-size: 1.02em; }
+.hero-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.86em;
+  background: var(--line);
+  color: var(--text-soft);
+}
+.chip:hover { text-decoration: none; filter: brightness(0.97); }
+.chip.pink   { background: var(--pink);   color: var(--pink-deep); }
+.chip.blue   { background: var(--blue);   color: var(--blue-deep); }
+.chip.green  { background: var(--green);  color: var(--green-deep); }
+.chip.yellow { background: var(--yellow); color: var(--yellow-deep); }
+
+/* ---------- 列表 ---------- */
+
+.list { list-style: none; padding: 0; margin: 0 0 1em; }
+.list li { margin-bottom: 14px; padding-left: 20px; position: relative; }
+.list li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 0.78em;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--pink);
+  outline: 1.5px solid var(--pink-deep);
+}
+
+/* ---------- 时间线 News ---------- */
+
+.timeline { list-style: none; padding: 0; margin: 0 0 8px; }
+.timeline li {
+  display: flex;
+  gap: 14px;
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--line);
+}
+.timeline li:last-child { border-bottom: none; }
+.timeline .date {
+  flex: 0 0 84px;
+  color: var(--muted);
+  font-size: 0.88em;
+  font-variant-numeric: tabular-nums;
+  padding-top: 1px;
+  white-space: nowrap;
+}
+.timeline .award { color: var(--yellow-deep); }
+.timeline .loc   { color: var(--muted); font-size: 0.88em; margin-left: 6px; }
+
+.expand-content { display: none; }
+.expand-content.show { display: block; }
+
+.btn-expand {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 4px 16px;
+  font-size: 0.86em;
+  font-weight: 500;
+  color: var(--text-soft);
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-expand:hover { background: #F4F3F0; }
+
+/* ---------- 技能 ---------- */
+
+.skill-group { margin-bottom: 14px; }
+.skill-group .skill-name {
+  font-weight: 600;
+  font-size: 0.95em;
+  margin-bottom: 6px;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+/* ---------- 论文条目 ---------- */
+
+.pub-count { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+
+.pub-list { list-style: none; padding: 0; margin: 0; counter-reset: pub; }
+.pub-item {
+  counter-increment: pub;
+  position: relative;
+  padding: 13px 14px 13px 46px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  background: #fff;
+  transition: border-color .15s;
+}
+.pub-item:hover { border-color: #DCDAD5; }
+.pub-item::before {
+  content: counter(pub);
+  position: absolute;
+  left: 14px; top: 14px;
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: var(--line);
+  color: var(--text-soft);
+  font-size: 0.78em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pub-item .pub-text { margin: 0; font-size: 0.95em; }
+.pub-item em { color: var(--text-soft); }
+.pub-item .me { font-weight: 700; }          /* 自己的名字加粗 */
+
+.pub-badges { margin-top: 7px; display: flex; flex-wrap: wrap; gap: 6px; }
+.badge {
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 6px;
+  font-size: 0.76em;
+  font-weight: 600;
+  background: var(--line);
+  color: var(--text-soft);
+}
+.badge.pink   { background: var(--pink);   color: var(--pink-deep); }
+.badge.blue   { background: var(--blue);   color: var(--blue-deep); }
+.badge.green  { background: var(--green);  color: var(--green-deep); }
+.badge.yellow { background: var(--yellow); color: var(--yellow-deep); }
+
+/* ---------- 经历条目 ---------- */
+
+.entry { margin-bottom: 20px; }
+.entry-head { margin-bottom: 2px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
+.entry-head strong { font-size: 1.02em; }
+.entry-date {
+  color: var(--muted);
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+.entry p { margin: 0; color: var(--text-soft); font-size: 0.96em; }
+
+/* ---------- 卡片（作品等） ---------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  background: #fff;
+  transition: box-shadow .15s, transform .15s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(55, 53, 47, .07);
+}
+.card .card-icon { width: 34px; height: 34px; margin-bottom: 10px; }
+.card .card-icon img { width: 100%; height: 100%; }
+.card h3 { margin-bottom: 4px; font-size: 1em; }
+.card p { margin: 0; font-size: 0.9em; color: var(--text-soft); }
+.card .card-badges { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* ---------- 页脚 ---------- */
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 22px 24px 26px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.86em;
+}
+.footer img { width: 20px; height: 20px; vertical-align: -4px; }
+
+/* ---------- 手机端 ---------- */
+
+@media (max-width: 720px) {
+  .nav-inner { height: auto; padding: 10px 16px; flex-wrap: wrap; }
+  .nav-toggle { display: block; order: 2; }
+  .nav-menu {
+    display: none;
+    order: 3;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 6px 0;
+  }
+  .nav-menu.show { display: flex; }
+  .nav-menu a { padding: 9px 8px; }
+
+  .page { padding: 28px 18px 32px; }
+  .hero { flex-direction: column; gap: 24px; }
+  .hero-photo { flex: none; width: 150px; }
+  .hero-photo .doodle-badge { right: -14px; bottom: -16px; width: 44px; }
+  .doodle-float { display: none; }
+  .timeline li { flex-direction: column; gap: 0; }
+  .pub-item { padding-left: 14px; }
+  .pub-item::before { display: none; }
+}
