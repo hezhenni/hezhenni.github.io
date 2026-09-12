@@ -242,6 +242,13 @@ code {
 .chip.green  { background: var(--green);  color: var(--green-deep); }
 .chip.yellow { background: var(--yellow); color: var(--yellow-deep); }
 
+/* chip 里的小图标（品牌图标等） */
+.chip-icon {
+  width: 15px; height: 15px;
+  border-radius: 4px;
+  object-fit: contain;
+}
+
 /* ---------- 列表 ---------- */
 
 .list { list-style: none; padding: 0; margin: 0 0 1em; }
@@ -389,6 +396,38 @@ code {
 .card p { margin: 0; font-size: 0.9em; color: var(--text-soft); }
 .card .card-badges { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
 
+/* 带封面图的作品卡片（整卡可点击） */
+.card-link { display: block; color: inherit; }
+.card-link:hover { text-decoration: none; }
+.card-cover {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--line);
+  background: var(--line);
+}
+
+/* Get in Touch 社交卡片 */
+.social { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.social-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  color: var(--text);
+  transition: transform .15s, box-shadow .15s;
+}
+.social-card:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(55, 53, 47, .08);
+}
+.social-card img { width: 20px; height: 20px; margin-bottom: 6px; }
+.social-card .muted { font-weight: 400; font-size: 0.85em; word-break: break-all; }
+
 /* ---------- 页脚 ---------- */
 
 .footer {
@@ -399,6 +438,105 @@ code {
   font-size: 0.86em;
 }
 .footer img { width: 20px; height: 20px; vertical-align: -4px; }
+
+/* ============================================================
+   涂鸦轻微浮动动画
+   用属性选择器按文件名命中，不需要改 HTML
+   ============================================================ */
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+@keyframes wag {
+  0%, 100% { transform: rotate(-3.5deg); }
+  50%      { transform: rotate(3.5deg); }
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50%      { transform: rotate(6deg); }
+}
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 1px rgba(246, 217, 107, .5)); opacity: .92; }
+  50%      { filter: drop-shadow(0 0 7px rgba(246, 217, 107, .95)); opacity: 1; }
+}
+@keyframes drift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50%      { transform: translateX(6px) translateY(-4px); }
+}
+
+/* 页角装饰涂鸦：上下轻轻漂浮 */
+.doodle-float  { animation: drift 7s ease-in-out infinite; }
+.doodle-float.small { animation: floatY 6s ease-in-out infinite; }
+
+/* 页面标题大图标：轻微上下浮动 */
+.page-icon img { animation: floatY 5s ease-in-out infinite; }
+
+/* 小狗（品牌图标 + 页脚）：摇尾巴式左右摆动 */
+img[src*="dog-flower.svg"] { animation: wag 3.2s ease-in-out infinite; }
+.nav-brand img { transform-origin: 50% 90%; }
+
+/* 灯泡：忽明忽暗地发光 */
+img[src*="lightbulb.svg"]  { animation: glow 2.8s ease-in-out infinite; }
+
+/* 彩虹（含云朵）：横向飘动 */
+img[src*="rainbow.svg"]    { animation: drift 9s ease-in-out infinite; }
+
+/* 花 / 星星 / 鲸鱼 / 鸭子等小涂鸦：轻微摇摆或漂浮 */
+.hero-photo .doodle-badge { animation: sway 4.5s ease-in-out infinite; }
+img[src*="doodles/flower.svg"]:not(.doodle-badge) { animation: sway 5s ease-in-out infinite; }
+img[src*="sparkle.svg"]    { animation: floatY 4s ease-in-out infinite; }
+img[src*="whale.svg"]      { animation: drift 8s ease-in-out infinite; }
+img[src*="duck.svg"]       { animation: floatY 6.5s ease-in-out infinite; }
+img[src*="frog.svg"]       { animation: floatY 5.5s ease-in-out infinite; }
+img[src*="cat.svg"]        { animation: sway 6s ease-in-out infinite; }
+
+/* 尊重系统的"减少动态效果"设置 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---------- 主页两侧空白装饰（宽屏才显示） ---------- */
+
+.side-deco {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: calc((100vw - 940px) / 2 - 28px);
+  z-index: 0;
+  pointer-events: none;
+  display: none;
+}
+.side-left  { left: 0; }
+.side-right { right: 0; }
+
+/* 极淡的星星底纹 */
+.side-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("images/doodles/sparkle.svg");
+  background-size: 46px 46px;
+  opacity: .09;
+}
+
+/* 涂鸦小女孩（左下角） */
+.side-girl {
+  position: absolute;
+  bottom: 44px;
+  left: calc(50% - 70px);
+  width: 140px;
+  animation: floatY 6s ease-in-out infinite;
+}
+
+/* 右侧散落的小涂鸦 */
+.side-doodle { position: absolute; left: calc(50% - 28px); }
+.side-doodle.d1 { top: 16%; width: 56px; animation: sway 6s ease-in-out infinite; }
+.side-doodle.d2 { top: 46%; width: 50px; animation: floatY 7s ease-in-out infinite; }
+.side-doodle.d3 { bottom: 18%; width: 52px; animation: sway 5.5s ease-in-out infinite; }
+
+@media (min-width: 1340px) {
+  .side-deco { display: block; }
+}
 
 /* ---------- 手机端 ---------- */
 

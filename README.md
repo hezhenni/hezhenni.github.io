@@ -1,19 +1,21 @@
 # (Jenny) Zhenni He 何珍妮 — 个人网站
 
+白底 · Notion 简约风 · 蜡笔简笔画涂鸦 · 马卡龙浅色点缀。
+纯静态 HTML，托管在 GitHub Pages，免费、无后端。
 
 ## 页面结构（多页面）
 
 ```
 my-website/
-├── index.html          ← About Me 关于我
-├── publications.html   ← Publications 论文
+├── index.html          ← About Me 关于我（照片、简介、教育背景、技能、近期动态）
+├── publications.html   ← Publications 论文（期刊 8 / 会议 9 / 书章 2 / 中文 5）
 ├── experience.html     ← Experience 经历（工作 / 教学 / 科研项目）
 ├── personal.html       ← Personal 生活（数媒作品、新闻文章、联系方式）
-├── style.css           ← 所有样式
+├── style.css           ← 所有样式（浅色块变量在文件开头 :root）
 ├── main.js             ← 手机菜单、Show More 折叠、淡入动画
 └── images/
-    ├── profile.png     ← 个人照片
-    └── doodles/        ← 13 个手绘风蜡笔涂鸦 SVG
+    ├── profile.png     ← 个人照片（取自简历 PPT）
+    └── doodles/        ← 13 个手绘风蜡笔涂鸦 SVG（狗、猫、鲸鱼、青蛙、鸭子…）
 ```
 
 ## 浅色配色（对应 CSS 变量）
@@ -44,4 +46,14 @@ python3 -m http.server 8000
 - **页脚版权**：四个页面底部各有一行
 
 ## 上线
+
+GitHub 账号：**hezhenni**　仓库：**hezhenni.github.io**
 网站地址：**https://hezhenni.github.io**
+把本文件夹内**所有文件**（4 个 html + style.css + main.js + images 文件夹）上传到 main 分支 →
+Settings → Pages → Branch: `main` / `(root)` → Save → 等 1–2 分钟即可访问。
+
+## 待办
+
+- [x] About Me 已加入 GitHub 链接（github.com/hezhenni）
+- [ ] 补全最后一篇中文发表（周晨等，NovaMind 5）的期刊名与年卷期
+- [ ] （可选）在 About Me 加微信 / Google Scholar / ORCID 链接
