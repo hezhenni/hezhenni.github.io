@@ -1,8 +1,5 @@
 # (Jenny) Zhenni He 何珍妮 — 个人网站
 
-白底 · Notion 简约风 · 蜡笔简笔画涂鸦 · 马卡龙浅色点缀。
-纯静态 HTML，托管在 GitHub Pages，免费、无后端。
-
 ## 页面结构（多页面）
 
 ```
@@ -29,13 +26,6 @@ my-website/
 
 改配色只需要改 `style.css` 开头 `:root` 里的变量。
 
-## 本地预览
-
-```bash
-cd my-website
-python3 -m http.server 8000
-# 浏览器打开 http://localhost:8000
-```
 
 ## 常用修改
 
@@ -45,15 +35,3 @@ python3 -m http.server 8000
 - **换涂鸦**：替换 `images/doodles/` 里的同名 SVG
 - **页脚版权**：四个页面底部各有一行
 
-## 上线
-
-GitHub 账号：**hezhenni**　仓库：**hezhenni.github.io**
-网站地址：**https://hezhenni.github.io**
-把本文件夹内**所有文件**（4 个 html + style.css + main.js + images 文件夹）上传到 main 分支 →
-Settings → Pages → Branch: `main` / `(root)` → Save → 等 1–2 分钟即可访问。
-
-## 待办
-
-- [x] About Me 已加入 GitHub 链接（github.com/hezhenni）
-- [ ] 补全最后一篇中文发表（周晨等，NovaMind 5）的期刊名与年卷期
-- [ ] （可选）在 About Me 加微信 / Google Scholar / ORCID 链接
